@@ -16,7 +16,11 @@ DEFAULT_THRESHOLD = 0.47   # bisa kamu ubah ke 0.45 jika ingin recall lebih ting
 @st.cache_resource
 def load_model():
     return tf.keras.models.load_model(
-        "best_model_finetuned_databalance.keras"
+        "best_model_finetuned_databalance.keras",
+        compile=False,
+        custom_objects={
+            "tf": tf
+        }
     )
 
 model = load_model()
