@@ -42,7 +42,7 @@ st.title("Klasifikasi Penyakit Kulit Melanoma")
 
 st.markdown("""
 Aplikasi ini merupakan **implementasi model EfficientNet-B3**  
-untuk klasifikasi **Melanoma vs Non-Melanoma**.
+untuk klasifikasi **Melanoma vs Melanocytic Nevi**.
 
 ⚠️ **Bukan alat diagnosis medis**  
 Digunakan hanya sebagai **alat bantu dan demonstrasi penelitian**.
@@ -81,7 +81,7 @@ if uploaded_file is not None:
             X = preprocess_image(image)
             prob = float(model.predict(X)[0][0])
 
-            pred_class = "Melanoma" if prob >= threshold else "Non-Melanoma"
+            pred_class = "Melanoma" if prob >= threshold else "Melanocytic Nevi"
 
         st.subheader("Hasil Prediksi")
         st.write(f"**Kelas:** {pred_class}")
@@ -91,7 +91,7 @@ if uploaded_file is not None:
         if pred_class == "Melanoma":
             st.error("⚠️ Terindikasi Melanoma")
         else:
-            st.success("✅ Non-Melanoma")
+            st.success("✅ Melanocytic Nevi")
 
 st.divider()
 
